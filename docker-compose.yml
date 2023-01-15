@@ -6,7 +6,7 @@ services:
     image: mongo:latest
     container_name: db
     volumes:
-      - "mongodb:/var/lib/mongodb"
+      - ./data:/data/db
     ports:
       - "27018:27017"
     restart: always
@@ -38,4 +38,4 @@ networks:
     driver: bridge
 
 volumes:
-  mongodb:
+  data:
