@@ -5,8 +5,8 @@ services:
   db:
     image: mongo:latest
     container_name: db
-    #volumes:
-      #- "/data/db:/var/lib/mongodb"
+    volumes:
+      - "mongodb:/var/lib/mongodb"
     ports:
       - "27018:27017"
     restart: always
@@ -36,3 +36,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mongodb:
