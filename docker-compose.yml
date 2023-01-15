@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  # MongoDB services
+  db:
+    image: mongo:latest
+    container_name: db
+    volumes:
+      - "/data/db"
+    ports:
+      - "27018:27017"
+    restart: always
+    networks:
+      - app-network
+
+  # Rails API service
+  app:
+    container_name: rails-api
+    env_file: .env
+    tty: true
+    stdin_open: true
+    environment:
+      RAILS_ENV: development
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+    links:
+      - db
+
+networks:
+  app-network:
+    driver: bridge
