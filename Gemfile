@@ -11,6 +11,7 @@ gem "puma", "~> 5.0"
 gem "rack-cors"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise-jwt', '~> 0.10.0'
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 gem 'draper', '~> 4.0', '>= 4.0.2'
 gem 'faraday', '~> 2.7', '>= 2.7.2'

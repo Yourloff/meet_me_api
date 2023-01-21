@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      devise_for :users
-      resources :users, only: %i[index]
-    end
-  end
+  root to: 'home#index'
+
+  devise_for :users,
+             controllers: {
+               sessions: 'users/sessions',
+               registrations: 'users/registrations'
+             }
+  get '/member-data', to: 'members#show'
 end
