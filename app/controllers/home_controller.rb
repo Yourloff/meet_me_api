@@ -2,8 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    render json: { 
-      message: 'Добро пожаловать в Meet me!'
-    }
+    render json: { message: 'Добро пожаловать в Meet me!' }
   end
 end
